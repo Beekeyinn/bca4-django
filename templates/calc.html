@@ -1,0 +1,30 @@
+{% extends "layouts/base.html" %}
+{% block title %}
+Calculation
+{% endblock title %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-6 offset-3">
+        <form action="" method="post">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="num1">First Number</label>
+                <input class="form-control" 
+                type="text" name="num1" id="num1">
+            </div>
+            <div class="mb-3">
+                <label for="num2">Second Number</label>
+                <input class="form-control" 
+                type="text" name="num2" id="num2">
+            </div>
+            <div class="mb-3">
+                <label for="result">Result: {{result}}</label>
+            </div>
+            <input class="btn btn-sm btn-primary" 
+            type="submit" value="Calculate">
+        </form>
+    </div>
+</div>
+{% endblock content %}
