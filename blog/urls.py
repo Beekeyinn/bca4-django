@@ -18,8 +18,10 @@ Including another URLconf
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
+from django.contrib.auth.views import LogoutView
 from django.urls import path
 
+from accounts.views import login_view, register_view
 from home.views import calculation_view, home_view
 from post.views import (
     post_create_view,
@@ -31,6 +33,9 @@ from post.views import (
 
 urlpatterns = [
     path("admin/", admin.site.urls),
+    path("accounts/login/", login_view, name="login"),
+    path("accounts/register/", register_view, name="register"),
+    path("accounts/logout/", LogoutView.as_view(), name="logout"),
     path("", home_view, name="home"),
     path("calculation/", calculation_view, name="calculation"),
     path("post/list/", post_list_view, name="post-list"),
